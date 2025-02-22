@@ -4,6 +4,10 @@ import axios from 'axios';
 import { Modal } from 'bootstrap';
 import apiPath from '../apiPath';  //API路徑檔案
 
+//環境變數(.env)
+const BASE_URL = import.meta.env.VITE_BASE_URL;
+const API_PATH = import.meta.env.VITE_API_PATH;
+
 function App() {
   //登入資料物件
   const [userData, setUserData] = useState({
@@ -215,7 +219,6 @@ function App() {
           is_enabled: modalData.is_enabled ? 1 : 0
         }
       })
-      console.log('新增成功');
     } catch (error) {
       alert('新增產品失敗');
     }
@@ -231,7 +234,6 @@ function App() {
           price: Number(modalData.price)
         }
       })
-      console.log('編輯成功');
     } catch (error) {
       alert('編輯產品失敗');
     }
